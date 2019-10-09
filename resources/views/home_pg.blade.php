@@ -1,30 +1,15 @@
-@extends('layouts.app')
+
+
+@extends('layouts/layout')
+
+@section('title')
+
+Home Page
+@stop
 
 @section('content')
 
-
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
- <style>
+    <style>
         .jumbotron{
             background-color:rgb(200, 223, 147);
             color:rgb(188, 92, 201);
@@ -144,8 +129,10 @@
 <div class="jumbotron">
 <div class="main_buttons">
 <!-- You can group buttons. You can size the buttons with btn-group-lg, btn-group-sm, or btn-group-xs -->
-    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-search"></span> Find a Ride</button>
-    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span> Offer a Ride</button>
+    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-search"></span> 
+    <a href="/find">Find a Ride</a></button>
+    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span> 
+    <a href="/offer">Offer a Ride</a></button>
     <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-repeat"></span> Repeat a Ride</button>
 </div>
 </div>
@@ -179,9 +166,7 @@
             </div>
     </div>
 
-    
-
 </div>
 </div>
 </div><br>
-@endsection
+@stop
