@@ -9,73 +9,7 @@ Home Page
 
 @section('content')
 
-    <style>
-        .jumbotron{
-            background-color:rgb(200, 223, 147);
-            color:rgb(188, 92, 201);
-        }
-        /* Adds borders for tabs */
-        .tab-content {
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
-        .nav-tabs {
-            margin-bottom: 0;
-        }
-        .main_buttons{
-            padding:10px 220px;
-        }
-        .btn btn-lg btn-primary{
-            margin-right: 5px;
-        }
-        .container h2{
-            margin:10px 400px;
-        }
-        .nav-pills > .nav-item > a:hover{
-          background-color:rgb(116, 200, 240);
-        }
-        /* Carousel Styling */
-        .slide1{
-          background-image: url('slide1.jpg');
-          height: 270px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-        }
-        .slide2{
-          background-image: url('slide2.jpg');
-          height: 200px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-        }
-        .slide3{
-          background-image: url('car.png');
-          height: 200px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-        }
-        .carousel-caption h1{
-          font-size: 5.4em;
-          font-family: 'Pacifico', cursive;
-          padding-bottom: .4em;
-        }
-        .carousel-caption p{
-          font-size: 2em;
-        }
-        .navbar-brand{
-          font-family:Faster One;
-        }
-        .col-md-4 > #social-fb{
-          padding:5px;
-        }
-        </style>
- 
 
- 
 <!-- jumbotron enlarges fonts and puts everything in a gray box with rounded corners. If jumbotron is outside a container it fills the total width. You can change the styles by placing the changes after the Bootstrap CDN link -->
 <div class="jumbotron">
 <!-- Carousel -->
@@ -129,10 +63,8 @@ Home Page
 <div class="jumbotron">
 <div class="main_buttons">
 <!-- You can group buttons. You can size the buttons with btn-group-lg, btn-group-sm, or btn-group-xs -->
-    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-search"></span> 
-    <a href="/find">Find a Ride</a></button>
-    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span> 
-    <a href="/offer">Offer a Ride</a></button>
+    <a href="/find" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-search"></span>   Find a Ride </a>
+    <a href="/offer" class="btn btn-lg btn-primary" ><span class="glyphicon glyphicon-plus"></span>  Offer a Ride </a>
     <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-repeat"></span> Repeat a Ride</button>
 </div>
 </div>

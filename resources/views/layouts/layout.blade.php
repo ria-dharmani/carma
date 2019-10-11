@@ -4,6 +4,7 @@
     <title>
         @yield('title')
     </title>
+
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('form.css') }}">
     <!-- <link rel="stylesheet" type="text/css" href="1.css"> -->
     <meta charset="utf-8">
@@ -20,9 +21,80 @@
 
  <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="carousel.js"></script>
+
+@yield('maps')
+<style>
+        .jumbotron{
+            background-color:rgb(200, 223, 147);
+            color:rgb(188, 92, 201);
+        }
+        /* Adds borders for tabs */
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .nav-tabs {
+            margin-bottom: 0;
+        }
+        .main_buttons{
+            padding:10px 220px;
+        }
+        .btn btn-lg btn-primary{
+            margin-right: 5px;
+        }
+        .container h2{
+            margin:10px 400px;
+        }
+        .nav-pills > .nav-item > a:hover{
+          background-color:rgb(116, 200, 240);
+        }
+        /* Carousel Styling */
+        .slide1{
+          background-image: url('slide1.jpg');
+          height: 270px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        .slide2{
+          background-image: url('slide2.jpg');
+          height: 200px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        .slide3{
+          background-image: url('car.png');
+          height: 200px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+        .carousel-caption h1{
+          font-size: 5.4em;
+          font-family: 'Pacifico', cursive;
+          padding-bottom: .4em;
+        }
+        .carousel-caption p{
+          font-size: 2em;
+        }
+        .navbar-brand{
+          font-family:Faster One;
+        }
+        .col-md-4 > #social-fb{
+          padding:5px;
+        }
+        </style>
+
   </head>
 <body>
+
 
 <div class="container">
 <div class="page-header">
@@ -32,7 +104,13 @@
       </div>
         <ul class="nav nav-pills navbar-right">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link active" href="/hm">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/find">Find a Ride</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/offer">Offer a Ride</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="#">About Us</a>
@@ -40,34 +118,10 @@
             <li class="nav-item">
                 <a class="nav-link " href="#">FAQs</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Sign up</a>
-            </li>
-          </ul>
-      </div>
-</div>        
-
-
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
+            <ul class="nav nav-pills navbar-right">
+                <!-- Authentication Links -->
+                @guest
+                        <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -77,9 +131,12 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if (auth()->user()->image)
+                                    <img src="{{ asset(auth()->user()->image) }}" style="width: 40px; height: 40px; border-radius: 50%;">
+                                @endif
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -87,6 +144,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -94,10 +152,20 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+            </li> -->
+          </ul>
+
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+            </li> -->
+          </ul>
+      </div>
+</div>     
+
+
 
 
         @yield('content')
