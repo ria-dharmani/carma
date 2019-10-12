@@ -28,8 +28,21 @@
 
 @yield('maps')
 <style>
+        body{
+          background-color:LightBlue ;
+          width:100%
+          height: 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        /* footer{
+          background-color:navy;
+          color:white;
+
+        } */
         .jumbotron{
-            background-color:rgb(200, 223, 147);
+            background-color:MediumOrchid ;
             color:rgb(188, 92, 201);
         }
         /* Adds borders for tabs */
@@ -90,6 +103,9 @@
         .col-md-4 > #social-fb{
           padding:5px;
         }
+        .affix {
+            top: 20px;
+          }
         </style>
 
   </head>
@@ -107,10 +123,10 @@
                 <a class="nav-link active" href="/hm">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/find">Find a Ride</a>
+                <a class="nav-link " href="/requests/create">Find a Ride</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/offer">Offer a Ride</a>
+                <a class="nav-link " href="/offer/create">Offer a Ride</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="#">About Us</a>

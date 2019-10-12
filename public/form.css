@@ -5,7 +5,7 @@
     background-color: linen;
 
 }
-.f1 input[type=text],input[type=password],input[type=email],input[type=tel],input[type=date],input[type=number],textarea{
+.f1 input[type=text],input[type=password],input[type=email],input[type=tel],input[type=date],input[type=datetime-local],textarea{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
