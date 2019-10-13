@@ -8,7 +8,7 @@ Find_A_Ride
 
 @section('content')
 
-        <form method="POST" action="/requests">
+        <form method="GET" action="/requests">
             @csrf
             <div class="f1">
     

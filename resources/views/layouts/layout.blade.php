@@ -126,7 +126,7 @@
                 <a class="nav-link " href="/requests/create">Find a Ride</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/offer/create">Offer a Ride</a>
+                <a class="nav-link " href="/offers/create">Offer a Ride</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="#">About Us</a>

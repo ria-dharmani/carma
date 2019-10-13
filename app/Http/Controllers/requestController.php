@@ -14,14 +14,15 @@ class requestController extends Controller
     
     public function index()
     {
-        // $requests->request::latest()->get();
+        $reqs->Request::all()->toArray();
+        return view('requests.index',compact('$reqs'));
         // return view('requests.index')->with('requests',$requests);
     } 
     
     public function show()
     {
-
-        return view('find_my_ride');
+        echo("hi");
+        return view('reqests.index');
     }
 
     public function create()

@@ -48,6 +48,7 @@ class OfferController extends Controller
             $req->date = $request->input('date');
             $req->user_id = auth()->user()->id;
             $req->ladies = $request->input('ladies');
+            $req->no_of_seats = $request->input('no_of_seats');
             
     
             $geocoder = new \OpenCage\Geocoder\Geocoder('618ed81b979f4ed083a8a7f19c060a58');
@@ -71,7 +72,7 @@ class OfferController extends Controller
                 'ride' => $req
             );
     
-            return view('find_my_ride')->with($context);
+           return view('offer_my_ride')->with($context);
     }
 
     /**
