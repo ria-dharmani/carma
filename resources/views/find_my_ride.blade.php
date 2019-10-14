@@ -39,31 +39,6 @@ My Ride
 
             L.marker([{{$ride->src_lat}},{{$ride->src_long}}]).addTo(mymap)
                 .bindPopup("<b>Source</b>").openPopup();
-
-            // L.circle([51.508, -0.11], 500, {
-            //     color: 'red',
-            //     fillColor: '#f03',
-            //     fillOpacity: 0.5
-            // }).addTo(mymap).bindPopup("I am a circle.");
-
-            // L.polygon([
-            //     [51.509, -0.08],
-            //     [51.503, -0.06],
-            //     [51.51, -0.047]
-            // ]).addTo(mymap).bindPopup("I am a polygon.");
-
-
-            // var popup = L.popup();
-
-            // function onMapClick(e) {
-            //     popup
-            //         .setLatLng(e.latlng)
-            //         .setContent("You clicked the map at " + e.latlng.toString())
-            //         .openOn(mymap);
-            // }
-
-            // mymap.on('click', onMapClick);
-
     </script>
 <body>
     <div class="container">
@@ -73,13 +48,62 @@ My Ride
             Date:{{$ride->date}}<br>
             Time:{{$ride->time}}<br>
         </p>
-
-        <h2>Available Rides</h2>
-        
-        <p>
-        {{$ride ?? ''->source}}
-        </p>
     </div>
-</body>
 
+@php
+function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+  if (($lat1 == $lat2) && ($lon1 == $lon2)) {
+    return 0;
+  }
+  else {
+        $theta = $lon1 - $lon2;
+        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
+        $miles = $dist * 60 * 1.1515;
+        $unit = strtoupper($unit);
+
+        if ($unit == "K") {
+        return ($miles * 1.609344);
+        } else if ($unit == "N") {
+        return ($miles * 0.8684);
+        } else {
+        return $miles;
+        }
+  }
+}    
+echo distance($ride->src_lat,$ride->src_long,$ride->des_lat,$ride->des_lon,'K');
+@endphp
+    
+<div class=row>
+            <div class="col-md-12">
+                <br />
+                <h3>All Rides Available</h3>
+                <br />
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>User</th>
+                        <th>Confirm</th>
+                        <th>
+                    </tr>
+                    
+
+                    @foreach ($reqs as $row)
+                    <tr>
+                        <td> {{$row->source}}</td>
+                        <td> {{$row->des}}</td>
+                        <td> {{$row->date}}</td>
+                        <td> {{$row->time}}</td>
+                        <td> {{$row->name}}</td>
+                        <td><a href="/requests/{hi}" onclick="confirm()"  class="btn btn-primary">Confirm</td>
+                    </tr>    
+                    @endforeach
+                </table>
+            </div>
+        </div>
+</body>
 @stop

@@ -1,7 +1,4 @@
-use App\Request
-
 @extends('layouts/layout')
-
 @section('title')
 Rides requested
 @stop
@@ -20,14 +17,15 @@ Rides requested
                     <th>Time</th>
                     <th>
                 </tr>
-                @foreach ($reqs as $row)
-                <tr>
-                    <td> {{$row['source']}}</td>
-                    <td> {{$row['source']}}</td>
-                    <td> {{$row['source']}}</td>
-                    <td> {{$row['source']}}</td>
-                </tr>    
-                @endforeach
+
+                    @foreach ($reqs as $row)
+                    <tr>
+                        <td> {{$row['source']}}</td>
+                        <td> {{$row['des']}}</td>
+                        <td> {{$row['date']}}</td>
+                        <td> {{$row['time']}}</td>
+                    </tr>    
+                    @endforeach
             </table>
         </div>
     </div>

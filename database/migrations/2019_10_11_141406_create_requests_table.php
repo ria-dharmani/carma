@@ -20,7 +20,7 @@ class CreateRequestsTable extends Migration
             $table->integer('user_id');
             $table->date('date');
             $table->time('time');
-            $table->double('des_lat')->nulllable();
+            $table->double('des_lat')->nullable();
             $table->double('des_long')->nullable();
             $table->double('src_long')->nullable();
             $table->double('src_lat')->nullable();

@@ -98,16 +98,16 @@
                         <div id="gender-group" class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                         <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
-                        <div class="col-md-6">
-                        <div><input id="female" type="radio" class="form-control" name="gender" value="Female" {{ (old('sex') == 'female') ? 'checked' : '' }} >Female</div>
-                        <div><input id="male" type="radio" class="form-control" name="gender" value="Male" {{ (old('sex') == 'male') ? 'checked' : '' }} >Male</div>
+                        {{-- <div class="col-md-6"> --}}
+                        <input id="female" type="radio" name="gender" value="Female" {{ (old('sex') == 'female') ? 'checked' : '' }} >Female
+                        <input id="male" type="radio"  name="gender" value="Male" {{ (old('sex') == 'male') ? 'checked' : '' }} >Male
                         @if ($errors->has('gender'))
                         <span class="help-block">
                         <strong>{{ $errors->first('gender') }}</strong>
                         </span>
                         @endif
                         </div>
-                        </div>
+                        {{-- </div> --}}
 
 
                         <div class="form-group row mb-0">

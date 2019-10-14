@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Request as RequestModal;
+use App\Offer;
+use DB;
 
 class requestController extends Controller
 {
@@ -14,15 +16,15 @@ class requestController extends Controller
     
     public function index()
     {
-        $reqs->Request::all()->toArray();
-        return view('requests.index',compact('$reqs'));
-        // return view('requests.index')->with('requests',$requests);
+        $reqs=RequestModal::all();
+        return view('requests.index')->with('reqs',$reqs);
+        
     } 
     
     public function show()
     {
         echo("hi");
-        return view('reqests.index');
+        // return view('reqests.index');
     }
 
     public function create()
@@ -49,16 +51,12 @@ class requestController extends Controller
         $geocoder = new \OpenCage\Geocoder\Geocoder('618ed81b979f4ed083a8a7f19c060a58');
         $r_src = $geocoder->geocode($request->input("source"));
         $r_des = $geocoder->geocode($request->input("des"));
-    // print($result['results'][0]['geometry']['lng']);
-        // $lat_des=$result['results'][0]['geometry']['lat'];
-        //echo("helooo"+ $long_src);
-        //print($r_des);
+    
         $lat_des=$r_des['results'][0]['geometry']['lat'];
         $lng_des=$r_des['results'][0]['geometry']['lng'];
         $lat_src=$r_src['results'][0]['geometry']['lat'];
         $lng_src=$r_src['results'][0]['geometry']['lng'];
-        // echo($lng_src);
-        // echo(gettype($lng_des));
+       
         $lng_des=floatval($lng_des);
         $lat_des=floatval($lat_des);
         $req->des_lat = $lat_des;
@@ -70,8 +68,34 @@ class requestController extends Controller
         $context = array(
             'ride' => $req
         );
+        $src=$req->source;
+        
+       
+        // $off= DB::select("SELECT source,des,date,time,name FROM offers as o,users as u where o.user_id=u.id 
+        // and (o.src_lat BETWEEN ? and ?) and (o.src_long BETWEEN ? and ?) and ",[$lat_src-.20,$lat_src+.20,$lng_src-.20,$lng_src+.20]);
+        $off= DB::select("SELECT source,des,date,time,name FROM offers as o,users as u where o.user_id=u.id 
+        and (o.des_lat BETWEEN ? and ?) 
+        and (o.des_long BETWEEN ? and ?)
+        and (o.src_lat BETWEEN ? and ?)
+        and (o.src_long BETWEEN ? and ?)
+        and o.date=?
+        and o.time =?
+        and o.user_id <>?",
+        [$lat_des-.20,$lat_des+.20,
+        $lng_des-.20, $lng_des+.20
+        ,$lat_src-.20,$lat_src+.20,
+        $lng_src-.20,$lng_src+.20,
+        $req->date,
+        $req->time,
+        $req->user_id]);
 
-        return view('find_my_ride')->with($context);
+        //$off=Offer::where('source',$src)->get();
+        //$off=Offer::all();
+        //return $off=RequestModal::all();
+    //     $off = array(
+    //         'reqs' => $off
+    //    );
+        return view('find_my_ride')->with($context)->with('reqs',$off);
     }
     /**
      * Get a validator for an incoming registration request.

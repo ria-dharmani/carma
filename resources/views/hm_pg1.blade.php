@@ -24,28 +24,30 @@ Home Page
     <!-- Define the text to place over the image -->
     <div class="carousel-inner">
       <div class="item active" >
-      <img src="https://static.vecteezy.com/system/resources/previews/000/145/282/non_2x/carpool-vector-background.jpg" alt="img1" height="100%" width="100%">
-      <div class ="slide1"></div>
-      
+      <div class ="slide1">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/145/282/non_2x/carpool-vector-background.jpg" alt="img1" height="100%" width="100%">  
+      </div>     
       <div class="carousel-caption">
         <h1 class="bg-primary">Amazing Rides</h1>
-        <p class="text-primary">Eco-smart and Secure platform for all your rides</p>
+        <p class="bg-primary">Eco-smart and Secure platform for all your rides</p>
       </div>
     </div>
     <div class="item">
+    <div class="slide2">
     <img src="https://d540vms5r2s2d.cloudfront.net/mad/uploads/mad_blog_5cdac357abb631557840727.png" alt="img2" height="100%" width="100%">
-    <div class="slide2"></div>
+    </div>
     <div class="carousel-caption">
       <h1 class="bg-primary">Find suitable Ride</h1>
-      <p class="text-primary">With CARMA you get the best value for rides</p>
+      <p class="bg-primary">With CARMA you get the best value for rides</p>
     </div>
     </div>
     <div class="item">
+    <div class="slide3">
     <img src="https://st4.cannypic.com/thumbs/43/436993_632_canny_pic.jpg" alt="img3" height="100%" width="100%">
-    <div class="slide3"></div>
+    </div>
     <div class="carousel-caption">
     <h1 class="bg-primary">Share your ride and save</h1>
-    <p class="text-primary">Create new friendships with your fellow carpoolers. Connect with various professionals and enjoy networking </p>
+    <p class="bg-primary">Create new friendships with your fellow carpoolers. Connect with various professionals and enjoy networking </p>
     </div>
     </div>
     </div>
@@ -62,14 +64,21 @@ Home Page
     </div>
 </div>
 
-<div class="jumbotron">
-<div class="main_buttons">
-<!-- You can group buttons. You can size the buttons with btn-group-lg, btn-group-sm, or btn-group-xs -->
-    <a href="/find" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-search"></span>   Find a Ride </a>
-    <a href="/offer" class="btn btn-lg btn-primary" ><span class="glyphicon glyphicon-plus"></span>  Offer a Ride </a>
-    <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-repeat"></span> Repeat a Ride</button>
-</div>
-</div>
+<div class="bg">
+  <div class="jumbotron" style ="float:left; z-index:1000;">
+    <div class="main_buttons">
+      <table class="table" style="width=100%;">
+      <tr>
+    <!-- You can group buttons. You can size the buttons with btn-group-lg, btn-group-sm, or btn-group-xs -->
+        <th><a href="/find" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-search"></span>   Find a Ride </a></th>
+        <th><a href="/offer" class="btn btn-lg btn-primary" ><span class="glyphicon glyphicon-plus"></span>  Offer a Ride </a></th>
+        <th><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-repeat"></span> Repeat a Ride</button></th>
+      </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+  <img src="http://phpcoder.tech/html-css/car.png" class="car">
 </div>
 <div class="container">
 <h2>How it Works</h2>

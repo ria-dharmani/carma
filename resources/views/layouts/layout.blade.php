@@ -4,7 +4,7 @@
     <title>
         @yield('title')
     </title>
-
+    <link rel = "icon" href = "https://ridesharkdata.rideshark.com/CustomSiteGraphics/NorthCarolina/UploadedFiles/Images/STRNC-Carpool-Pindrop@2x.png" type = "image/x-icon"> 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('form.css') }}">
     <!-- <link rel="stylesheet" type="text/css" href="1.css"> -->
     <meta charset="utf-8">
@@ -42,8 +42,8 @@
 
         } */
         .jumbotron{
-            background-color:MediumOrchid ;
-            color:rgb(188, 92, 201);
+            background-color:Orchid ;
+            color:DarkOrchid;
         }
         /* Adds borders for tabs */
         .tab-content {
@@ -53,16 +53,16 @@
             padding: 10px;
         }
         .nav-tabs {
-            margin-bottom: 0;
+            margin-bottom: 15px;
         }
         .main_buttons{
-            padding:10px 220px;
+            padding:10px 150px;
         }
         .btn btn-lg btn-primary{
             margin-right: 5px;
         }
         .container h2{
-            margin:10px 400px;
+            margin:10px 200px;
         }
         .nav-pills > .nav-item > a:hover{
           background-color:rgb(116, 200, 240);
@@ -70,42 +70,68 @@
         /* Carousel Styling */
         .slide1{
           background-image: url('slide1.jpg');
-          height: 270px;
+          height: 500px;
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
         }
         .slide2{
           background-image: url('slide2.jpg');
-          height: 200px;
+          height:  500px;
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
         }
         .slide3{
           background-image: url('car.png');
-          height: 200px;
+          height:  500px;
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
         }
         .carousel-caption h1{
-          font-size: 5.4em;
+          font-size: 25px;
           font-family: 'Pacifico', cursive;
-          padding-bottom: .4em;
+          padding-bottom: .6em;
+          font-weight: bold;
         }
         .carousel-caption p{
-          font-size: 2em;
+          font-size: 16px;
+          vertical-align:bottom;
         }
         .navbar-brand{
           font-family:Faster One;
         }
         .col-md-4 > #social-fb{
-          padding:5px;
+          padding:2px;
         }
         .affix {
             top: 20px;
           }
+        .bg{
+          position: relative;
+          background: #00fdff url('https://ak7.picdn.net/shutterstock/videos/1014440147/thumb/1.jpg');
+         /* 'https://ak7.picdn.net/shutterstock/videos/16765657/thumb/1.jpg' */
+          height: 100vh;
+          background-size: cover;
+          background-position: 0 0;
+          background-repeat: repeat-x;
+          animation: animate 0.5s linear infinite;
+          }
+        .car{
+          position: absolute;
+          bottom: -910px;
+          left: 40px;
+          z-index:2000;
+          }
+          @keyframes animate{
+          from{
+          background-position: 0 0;
+          }
+          to{
+          background-position: 100% 0;
+          }
+        }
         </style>
 
   </head>
@@ -113,10 +139,16 @@
 
 
 <div class="container">
-<div class="page-header">
+<div class="page-header" >
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#"><h2>CARMA</h2></a>
+      <a class="navbar-brand" href="#">
+        <img src="https://ridesharkdata.rideshark.com/CustomSiteGraphics/NorthCarolina/UploadedFiles/Images/STRNC-Carpool-Pindrop@2x.png" alt="logo" style="width:100px;">
+      </a>
+        <a class="navbar-brand" style="float:middle;vertical-align:top;" href="#"><h2>CARMA</h2></a>
+        <span class="navbar-text" style="float:right ;color:navy; text-height=20px;" >
+          Find your travel companion, save money and go eco-friendly..
+        </span>
       </div>
         <ul class="nav nav-pills navbar-right">
             <li class="nav-item">
