@@ -65,7 +65,7 @@ My Ride
 
     </script>
 <body>
-    <div class="container">
+    <div class="container" id="my">
         <h2>My Ride</h2>
         <p>Source:{{$ride->source}}<br>
             Destination:{{$ride->des}}<br>
@@ -73,6 +73,8 @@ My Ride
             Time:{{$ride->time}}<br>
  </p>
     </div>
+
+
 </body>
 
 @stop

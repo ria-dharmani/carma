@@ -1,7 +1,6 @@
 @extends('layouts/layout')
 
 @section('title')
-
 Offer
 @stop
 
@@ -14,7 +13,9 @@ Offer
             <label>Enter Destination</label><input type="text" name="des">  
             <label>Enter Date</label><input type="date" name="date">
             <label>Enter Time</label><input type="time" name="time">
-            <label>Ladies Only</label><input type="checkbox" name="ladies"><br>
+            @if(auth()->user()->gender == "Female")
+            <div id="ladies"><label>Ladies Only</label><input type="checkbox" name="ladies" ><br></div>
+            @endif
             <label>Vacant Seats</label><input type="number" max="6" min="1" name="no_of_seats">
 
             <button style="width: 100%;

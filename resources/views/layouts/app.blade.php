@@ -36,6 +36,19 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="carousel.js"></script>
 
+    <style>
+    footer{
+          background-color:navy;
+          color:white;
+
+        } 
+    #display{
+        background-color:MintCream ;
+        padding-top:50px;
+        padding-bottom:100px;
+    }
+    </style>
+
 </head>
 <body>
 
@@ -45,25 +58,15 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="#"><h2>CARMA</h2></a>
       </div>
-        <ul class="nav nav-pills navbar-right">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">FAQs</a>
-            </li>
+        
                 <!-- Authentication Links -->
+
+                
                 @guest
-                                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
+                                </li> --}}
                             @endif
                         @else
                             <li class="nav-item dropdown">
@@ -98,7 +101,7 @@
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a> -->
@@ -115,13 +118,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#">About Us</a>
+                        <a class="nav-link " href="/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#">FAQs</a>
+                        <a class="nav-link " href="/faq">FAQs</a>
                     </li>
 
                         <!-- Authentication Links -->
@@ -169,61 +172,61 @@
 
 
 <!-- Footer -->
-    <footer class="page-footer font-small teal pt-4" >
+  <footer class="page-footer font-small teal pt-4">
 
         <!-- Footer Text -->
         <div class="container-fluid text-center text-md-left">
-
-        <!-- Grid row -->
-        <div class="row">
-            <hr class="clearfix w-100 d-md-none pb-3">
+        
+          <!-- Grid row -->
+          <div class="row">
+              <hr class="clearfix w-100 d-md-none pb-3">
             <!-- Grid column -->
             <div class="col-md-4 mt-md-0 mt-3">
-
-            <!-- Content -->
-            <h5 class="text-uppercase"><b>Address :</b></h5>
-            <p>carma_ent, Collector's colony</p>
-            <p>New Link road</p>
-            <p>Chembur, Mumbai-74</p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-4 mb-md-0 mb-3">
-
-                <!-- Content -->
-                <h5 class="text-uppercase"><b>Contact no. :</b></h5>
-                <p>1234567890</p>
-                <h5 class="text-uppercase "><b>Email Address :</b></h5>
-                <p>carma_ent@gmail.com</p>
-                </div>
-
-                <div class="col-md-4">
-                
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                    <!-- Twitter -->
-                <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                
-                </div>
-            </div>  
-            
-        </div>
+        
+              <!-- Content -->
+              <h5 class="text-uppercase"><b>Address :</b></h5>
+              <p>carma_ent, Collector's colony</p>
+              <p>New Link road</p>
+              <p>Chembur, Mumbai-74</p>
+            </div>
+            <!-- Grid column -->
         
             <!-- Grid column -->
-
-        </div>
-        <!-- Grid row -->
-
-        </div>
+            <div class="col-md-4 mb-md-0 mb-3">
+        
+              <!-- Content -->
+              <h5 class="text-uppercase"><b>Contact no. :</b></h5>
+              <p>1234567890</p>
+              <h5 class="text-uppercase "><b>Email Address :</b></h5>
+              <p>carma_ent@gmail.com</p>
+            </div>
+        
+            <div class="col-md-4">
+              
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                <!-- Twitter -->
+              <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+              
+              </div>
+            </div>  
+            
+          </div>
+          
+            <!-- Grid column -->
+        
+          </div>
+          <!-- Grid row -->
+        
+          <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="#"> CARma.com</a>
         <!-- Footer Text -->
-
+        
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="#"> CARma.com</a>
+     
         </div>
         <!-- Copyright -->
-
-    </footer>
+        </div>
+        </footer>
 </body>
 </html>

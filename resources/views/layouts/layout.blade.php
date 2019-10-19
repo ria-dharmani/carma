@@ -4,7 +4,7 @@
     <title>
         @yield('title')
     </title>
-    <link rel = "icon" href = "https://ridesharkdata.rideshark.com/CustomSiteGraphics/NorthCarolina/UploadedFiles/Images/STRNC-Carpool-Pindrop@2x.png" type = "image/x-icon"> 
+    <link rel = "icon"  href = "https://ridesharkdata.rideshark.com/CustomSiteGraphics/NorthCarolina/UploadedFiles/Images/STRNC-Carpool-Pindrop@2x.png" type = "image/x-icon"> 
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('form.css') }}">
     <!-- <link rel="stylesheet" type="text/css" href="1.css"> -->
     <meta charset="utf-8">
@@ -25,25 +25,38 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="carousel.js"></script>
-
 @yield('maps')
 <style>
-        body{
-          background-color:LightBlue ;
+    
+      .navbar-header{
+        background-color:Plum;
+        color:Purple;
+        }
+        .page-header{
+        background-color:Plum;
+        
+        }
+          body{
+          background-color: MintCream ;
           width:100%
           height: 100%;
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
         }
-        /* footer{
-          background-color:navy;
+       footer{
+          background-color:darkslateblue;
           color:white;
 
-        } */
-        .jumbotron{
+        } 
+        #hiw,.jumbotron{
             background-color:Orchid ;
-            color:DarkOrchid;
+            color:navy;
+            position:relative;
+            align:center;
+        }
+        .jumbotron>a{
+            color:white;
         }
         /* Adds borders for tabs */
         .tab-content {
@@ -63,6 +76,19 @@
         }
         .container h2{
             margin:10px 200px;
+        }
+        #my{
+          background-color: bisque;
+          color:Purple;
+          /* z-index:2000; */
+     
+          align:center;
+          font-size:26px;
+          text-align: center;
+        }
+        .nav-item >a {
+          color:Navy ;
+          font-size: 20px;
         }
         .nav-pills > .nav-item > a:hover{
           background-color:rgb(116, 200, 240);
@@ -112,16 +138,16 @@
           position: relative;
           background: #00fdff url('https://ak7.picdn.net/shutterstock/videos/1014440147/thumb/1.jpg');
          /* 'https://ak7.picdn.net/shutterstock/videos/16765657/thumb/1.jpg' */
-          height: 100vh;
-          background-size: cover;
+          height: 100vh ;
+          background-size: contain;
           background-position: 0 0;
           background-repeat: repeat-x;
-          animation: animate 0.5s linear infinite;
+          animation: animate 2s linear infinite;
           }
         .car{
-          position: absolute;
-          bottom: -910px;
-          left: 40px;
+          position: relative;
+          bottom: -520px;
+          float:left;
           z-index:2000;
           }
           @keyframes animate{
@@ -138,33 +164,35 @@
 <body>
 
 
-<div class="container">
+<div class="container-fluid">
 <div class="page-header" >
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        <img src="https://ridesharkdata.rideshark.com/CustomSiteGraphics/NorthCarolina/UploadedFiles/Images/STRNC-Carpool-Pindrop@2x.png" alt="logo" style="width:100px;">
+        <img src="https://ridesharkdata.rideshark.com/CustomSiteGraphics/NorthCarolina/UploadedFiles/Images/STRNC-Carpool-Pindrop@2x.png" alt="logo" style="width:100px; height:120px; vertical-align:top;">
       </a>
-        <a class="navbar-brand" style="float:middle;vertical-align:top;" href="#"><h2>CARMA</h2></a>
-        <span class="navbar-text" style="float:right ;color:navy; text-height=20px;" >
-          Find your travel companion, save money and go eco-friendly..
+        <div style="align:center; vertical-align:top;">
+        <a class="navbar-brand" style="color:Purple; text-height:24px; vertical-align:top;" href="#"><h2>CARMA</h2></a>
+        <span class="navbar-text" style="float:right ;color:Purple; text-height:20px;" >
+          Your carpooling solution...
         </span>
+        </div>
       </div>
         <ul class="nav nav-pills navbar-right">
             <li class="nav-item">
-                <a class="nav-link active" href="/hm">Home</a>
+                <a class="nav-link btn " href="/hm">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/requests/create">Find a Ride</a>
+                <a class="nav-link btn " href="/requests/create">Find a Ride</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/offers/create">Offer a Ride</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#">About Us</a>
+                <a class="nav-link " href="/about">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#">FAQs</a>
+                <a class="nav-link " href="/faq">FAQs</a>
             </li>
             <ul class="nav nav-pills navbar-right">
                 <!-- Authentication Links -->
@@ -217,6 +245,14 @@
 
 
         @yield('content')
+        <!--<script>
+  $(document).ready(
+    $(".nav li > a").on("click", function(){
+   $(this).parent().addClass("active");
+});
+});
+</script>-->
+
 </body>
 
   <!-- Footer -->
@@ -266,7 +302,7 @@
   </div>
   <!-- Grid row -->
 
-</div>
+
 <!-- Footer Text -->
 
 <!-- Copyright -->
@@ -274,6 +310,6 @@
   <a href="#"> CARma.com</a>
 </div>
 <!-- Copyright -->
-
+</div>
 </footer>
 </html>

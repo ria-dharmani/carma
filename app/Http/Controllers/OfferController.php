@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Offer;
+use App\Confirm;
 class OfferController extends Controller
 {
     
@@ -47,7 +48,15 @@ class OfferController extends Controller
             $req->time = $request->input('time');
             $req->date = $request->input('date');
             $req->user_id = auth()->user()->id;
-            $req->ladies = $request->input('ladies');
+            //$req->ladies = $request->input('ladies');
+            
+            $l=FALSE;
+            if (isset($_POST['ladies']))
+            {
+                $l=TRUE;
+            }
+            
+            $req->ladies = $l;
             $req->no_of_seats = $request->input('no_of_seats');
             
     
@@ -68,11 +77,16 @@ class OfferController extends Controller
             $req->src_long = $lng_src;
             $req->save();
             
+            $cnf= Confirm::find($req->id);
+            $conf = array(
+                'conf' => $cnf
+            );
+
             $context = array(
                 'ride' => $req
             );
     
-           return view('offer_my_ride')->with($context);
+           return view('offer_my_ride')->with($context)->with($conf);
     }
 
     /**

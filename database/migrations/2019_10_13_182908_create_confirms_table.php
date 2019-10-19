@@ -15,20 +15,8 @@ class CreateConfirmsTable extends Migration
     {
         Schema::create('confirms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('source');
-            $table->string('des');
-            $table->double('des_lat')->nullable;
-            $table->double('des_long')->nullable;
-            $table->double('src_lat')->nullable;
-            $table->double('src_long')->nullable;
-            $table->date('date');
-            $table->time('time');
             $table->integer('r_id');
             $table->integer('o_id');
-            $table->integer('seats');
-            $table->boolean('ladies');
-            $table->float('price');
-            $table->float('distance');
             $table->timestamps();
         });
     }

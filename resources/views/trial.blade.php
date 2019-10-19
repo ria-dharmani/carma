@@ -1,12 +1,12 @@
 <?php
 
-$geocoder = new \OpenCage\Geocoder\Geocoder('618ed81b979f4ed083a8a7f19c060a58');
-$result = $geocoder->geocode('thane');
-print ($result['results'][0]['geometry']['lng']);
-print ($result['results'][0]['geometry']['lat']);
-echo gettype($result['results'][0]['geometry']['lng']);
+// $geocoder = new \OpenCage\Geocoder\Geocoder('618ed81b979f4ed083a8a7f19c060a58');
+// $result = $geocoder->geocode('thane');
+// print ($result['results'][0]['geometry']['lng']);
+// print ($result['results'][0]['geometry']['lat']);
+// echo gettype($result['results'][0]['geometry']['lng']);
 
-function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+function distance($lat1, $lon1, $lat2, $lon2) {
   if (($lat1 == $lat2) && ($lon1 == $lon2)) {
     return 0;
   }
@@ -16,18 +16,18 @@ function distance($lat1, $lon1, $lat2, $lon2, $unit) {
         $dist = acos($dist);
         $dist = rad2deg($dist);
         $miles = $dist * 60 * 1.1515;
-        $unit = strtoupper($unit);
+      //  $unit = strtoupper($unit);
 
-        if ($unit == "K") {
-        return ($miles * 1.609344);
-        } else if ($unit == "N") {
-        return ($miles * 0.8684);
-        } else {
-        return $miles;
-        }
+        // if ($unit == "K") {
+        // return ($miles * 1.609344);
+        // } else if ($unit == "N") {
+        // return ($miles * 0.8684);
+        // } else {
+        return $miles * 1.609344;
+        // }
   }
 }    
-echo distance(19.1943294,72.9701779,77.2219388,28.6517178,'K');
+echo distance(19.1943294,72.9701779,28.6517178,77.2219388);
 
 //set optional parameters
 //see the full list: https://opencagedata.com/api#forward-opt

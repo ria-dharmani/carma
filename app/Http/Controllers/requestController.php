@@ -73,7 +73,7 @@ class requestController extends Controller
        
         // $off= DB::select("SELECT source,des,date,time,name FROM offers as o,users as u where o.user_id=u.id 
         // and (o.src_lat BETWEEN ? and ?) and (o.src_long BETWEEN ? and ?) and ",[$lat_src-.20,$lat_src+.20,$lng_src-.20,$lng_src+.20]);
-        $off= DB::select("SELECT source,des,date,time,name FROM offers as o,users as u where o.user_id=u.id 
+        $off= DB::select("SELECT DISTINCT user_id,source,des,date,time,name,o.id, ladies, no_of_seats FROM offers as o,users as u where o.user_id=u.id 
         and (o.des_lat BETWEEN ? and ?) 
         and (o.des_long BETWEEN ? and ?)
         and (o.src_lat BETWEEN ? and ?)

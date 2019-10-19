@@ -36,7 +36,7 @@
 			#flip1, #flip2,#flip3, #flip4,#flip5,#flip6{
 			  padding: 25px;
 			  text-align: center;
-			  background-color:orchid;
+			  
 			  color:navy;
 			  font-size: 20px; 
 			  border: solid 1px #440d3b;
@@ -45,13 +45,20 @@
 			  background-repeat:no-repeat;  */
 			  /* background-size: 50%; */
 			}
+			#flip1,#flip3,#flip5
+			{
+				background-color:MediumAquamarine;
+			}
+			#flip2,#flip4,#flip6{
+				background-color:Aquamarine;
+			}
 				
 			#panel1,#panel2,#panel3,#panel4,#panel5,#panel6 {
 			  padding: 50px;
 			  text-align: center;
 			  color:navy;
 			  font-size: 16px;
-			  background-color:MediumSlateBlue;
+			  background-color:Bisque;
 			  display: none;
 			  
 			}
@@ -95,7 +102,7 @@
 			</li>
             <li >
             <div class="text-component">
-				<p class="p-3 mb-2 bg-secondary text-white"><span>Can I cancell confirmed ride?</span></p>          
+				<p class="p-3 mb-2 bg-secondary text-white"><span>Can I cancel confirmed ride?</span></p>          
                 <p>Yes !! But cancellation of ride will reduce your user rating.</p>
             </div> 
 			</li>

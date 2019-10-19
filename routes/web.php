@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/hm', function () {
-    return view('hm_pg1');
+Route::get('/', function () {
+    return view('home_pg');
 });
 
 
@@ -24,11 +24,19 @@ Route::get('/home', function () {
     return view('home_pg');
 });
 
+Route::get('/hm', function () {
+    return view('home_pg');
+});
+
 // Route::get('/', PagesController@log_in);
 
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::get('/go', 'requestController@show');
@@ -60,7 +68,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/requests/{req}', 'requestController@show');
 Route::resource('/requests','requestController');
 Route::resource('/offers','OfferController');
+Route::resource('/confirm','ConfirmController');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
-Route::resource('rides','RideController');
+//Route::resource('rides','RideController');
